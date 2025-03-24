@@ -1,18 +1,160 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  user-select: none;
+}
+.app {
+  width: 100%;
+  height: 100%;
+  padding: 36px 156px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+.app-form {
+  display: flex;
+  gap: 8px;
+}
+.app-form input[type='text'] {
+  width: 272px;
+  height: 40px;
+  border: 1px solid rgba(128, 128, 128, 1);
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 4%;
+  color: rgba(128, 128, 128, 1);
+}
+.app-form input[type='text']:hover {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+.app-form input[type='text']:focus {
+  outline: none;
+  border: 1px solid rgba(78, 117, 255, 1);
+  color: rgba(46, 47, 66, 1);
+}
+
+.app-form input[type='submit'],
+input[type='button'] {
+  background: rgba(78, 117, 255, 1);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 4%;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+.app-form input[type='submit']:hover,
+input[type='button']:hover {
+  background: rgba(108, 140, 255, 1);
+}
+
+.gallery {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  list-style: none;
+}
+.gallery .gallery-item {
+  position: relative;
+  width: 360px;
+  height: 200px;
+  border: 1px solid rgba(128, 128, 128, 1);
+}
+.gallery .gallery-item .content {
+  position: absolute;
+  bottom: 0px;
+  background-color: white;
+  width: 100%;
+  height: 48px;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+.gallery-item .content .info {
+  text-align: center;
+}
+.gallery-item .content .info .key {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 4%;
+}
+.gallery-item .content .info .value {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 4%;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #fff #fff transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #ff3d00 #ff3d00;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 32px;
+  height: 32px;
+  border-color: #fff #fff transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
